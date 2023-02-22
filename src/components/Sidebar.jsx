@@ -6,7 +6,7 @@ function Sidebar({ selectedCategory, setSelectedCategory, }) {
     };
     return (
         <>
-            <div className='bg-black w-56 overflow-x-hidden border-r border-gray-400 absolute mt-[4.5rem] '>
+            <div className='bg-black w-2/12 overflow-x-hidden border-r border-gray-400'>
                 <div className='flex flex-col p-4 space-y-2'>
                     {categories.map((category, index) => (
                         <>
