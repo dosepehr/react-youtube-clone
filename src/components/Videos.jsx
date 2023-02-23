@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect} from 'react';
 import { fetchData } from '../Services';
 import { VideoCard, ChannelCard } from './index.js';
 function Videos({ selectedCategory, videos, setVideos }) {
@@ -32,6 +32,7 @@ function Videos({ selectedCategory, videos, setVideos }) {
                                     {item.id.videoId && (
                                         <VideoCard video={item} />
                                     )}
+                                    {item.id.channelId && <ChannelCard channelDetail={item}  />}
                                 </div>
                             ))}
                         </div>
