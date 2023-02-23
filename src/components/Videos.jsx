@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { fetchData } from '../Services';
+import { VideoCard, ChannelCard } from './index.js';
 function Videos({ selectedCategory, videos, setVideos }) {
     useEffect(() => {
         async function getData() {
@@ -14,7 +15,6 @@ function Videos({ selectedCategory, videos, setVideos }) {
         }
         getData();
     }, [selectedCategory]);
-    console.log(videos);
     return (
         <>
             <div className='w-10/12 bg-black px-5'>
@@ -22,12 +22,20 @@ function Videos({ selectedCategory, videos, setVideos }) {
                     <span className='text-white font-bold text-3xl'>
                         {selectedCategory}
                     </span>
-                    <span className='text-red font-bold text-3xl'>videos</span>
-                    {
-                        videos.map((video, index) => (
-                            <p className='bg-red' >video</p>
-                        ))
-                    }
+                    <span className='text-Mainred font-bold text-3xl'>
+                        videos
+                    </span>
+                    <>
+                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3'>
+                            {videos.map((item, index) => (
+                                <div>
+                                    {item.id.videoId && (
+                                        <VideoCard video={item} />
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    </>
                 </div>
             </div>
         </>
