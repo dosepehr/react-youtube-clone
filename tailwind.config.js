@@ -4,10 +4,11 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                red:'#fc1503'
-            }
+                Mainred: '#fc1503',
+                Maingray: '#272727',
+                Textgray:'#dfdfdf'
+            },
         },
     },
     plugins: [],
 };
-
