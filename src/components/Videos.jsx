@@ -1,4 +1,4 @@
-import { useEffect} from 'react';
+import { useEffect } from 'react';
 import { fetchData } from '../Services';
 import { VideoCard, ChannelCard } from './index.js';
 function Videos({ selectedCategory, videos, setVideos }) {
@@ -30,9 +30,14 @@ function Videos({ selectedCategory, videos, setVideos }) {
                             {videos.map((item, index) => (
                                 <div>
                                     {item.id.videoId && (
-                                        <VideoCard video={item} />
+                                        <VideoCard video={item} key={index} />
                                     )}
-                                    {item.id.channelId && <ChannelCard channelDetail={item}  />}
+                                    {item.id.channelId && (
+                                        <ChannelCard
+                                            channelDetail={item}
+                                            key={index}
+                                        />
+                                    )}
                                 </div>
                             ))}
                         </div>

@@ -6,7 +6,7 @@ function VideoCard({ video }) {
     return (
         <>
             {Object.keys(video).length > 0 && (
-                <div>
+                <>
                     <Link
                         to={
                             video.id.videoId ? `/video/${video.id.videoId}` : ''
@@ -39,7 +39,7 @@ function VideoCard({ video }) {
                             </div>
                         </Link>
                     </div>
-                </div>
+                </>
             )}
         </>
     );

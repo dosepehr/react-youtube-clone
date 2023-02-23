@@ -1,25 +1,53 @@
 import { useState } from 'react';
-import { MainLayout, Navbar, Sidebar, Videos } from './components';
+import {
+    MainLayout,
+    Navbar,
+    Sidebar,
+    Videos,
+    ChannelDetail,
+} from './components';
+import { Route, Routes, Navigate } from 'react-router-dom';
 function App() {
     const [selectedCategory, setSelectedCategory] = useState('New');
     const [showSidebar, setShowSidebar] = useState(false);
     const [videos, setVideos] = useState([]);
+    const [channel, setChannel] = useState(null);
     return (
         <>
             <Navbar />
-            <MainLayout>
-                <Sidebar
-                    selectedCategory={selectedCategory}
-                    setSelectedCategory={setSelectedCategory}
-                    showSidebar={showSidebar}
-                    setShowSidebar={setShowSidebar}
+            <Routes>
+                <Route path='/' element={<Navigate to='/videos' />} />
+
+                <Route
+                    path='/videos'
+                    element={
+                        <MainLayout>
+                            <Sidebar
+                                selectedCategory={selectedCategory}
+                                setSelectedCategory={setSelectedCategory}
+                                showSidebar={showSidebar}
+                                setShowSidebar={setShowSidebar}
+                            />
+                            <Videos
+                                selectedCategory={selectedCategory}
+                                videos={videos}
+                                setVideos={setVideos}
+                            />
+                        </MainLayout>
+                    }
                 />
-                <Videos
-                    selectedCategory={selectedCategory}
-                    videos={videos}
-                    setVideos={setVideos}
+                <Route
+                    path='/channel/:id'
+                    element={
+                        <ChannelDetail
+                            channel={channel}
+                            setChannel={setChannel}
+                            videos={videos}
+                            setVideos={setVideos}
+                        />
+                    }
                 />
-            </MainLayout>
+            </Routes>
         </>
     );
 }
