@@ -1,6 +1,6 @@
 import React from 'react';
-import { SearchBar } from './index';
-import { MainLogo } from '../constants/data';
+import { SearchBar } from '../index';
+import { MainLogo } from '../../constants/data';
 function Navbar() {
     return (
         <>

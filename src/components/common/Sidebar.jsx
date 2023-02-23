@@ -1,6 +1,6 @@
 import React from 'react';
-import { categories } from '../constants/data';
-function Sidebar({ selectedCategory, setSelectedCategory, }) {
+import { categories } from '../../constants/data';
+function Sidebar({ selectedCategory, setSelectedCategory }) {
     const changeCategory = (categoryName) => {
         setSelectedCategory(categoryName);
     };
@@ -24,7 +24,6 @@ function Sidebar({ selectedCategory, setSelectedCategory, }) {
                                         'text-white'
                                     } `}
                                 >
-                                    
                                     {category.icon}
                                 </span>
                                 <span className='text-base font-semibold text-white '>
