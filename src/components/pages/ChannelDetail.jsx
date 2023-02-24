@@ -23,7 +23,6 @@ function ChannelDetail({ channel, setChannel, videos, setVideos }) {
         }
         getData();
     }, [id]);
-    console.log(channel);
     return (
         <>
             <div className='bg-black'>

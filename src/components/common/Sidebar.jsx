@@ -8,8 +8,6 @@ function Sidebar({
     const changeCategory = (categoryName) => {
         setSelectedCategory(categoryName);
     };
-    console.log(window.innerWidth);
-    console.log(openSideBar);
     return (
         <>
             <div className='bg-black overflow-x-hidden border-r border-gray-400 mt-16 transition-all duration-200 w-[300px]'>
@@ -18,7 +16,7 @@ function Sidebar({
                         <div
                             onClick={() => changeCategory(category.name)}
                             key={index}
-                            className={` group flex items-center rounded-full space-x-2 p-3 text-center hover:bg-Mainred  w-min transition-all duration-200 cursor-pointer ${
+                            className={` group flex items-center rounded-full space-x-2 p-3 text-center hover:bg-Mainred transition-all duration-200 cursor-pointer ${
                                 category.name === selectedCategory &&
                                 'bg-Mainred'
                             }`}

@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
 function VideoCard({ video }) {
-    console.log(video);
     return (
         <>
             {Object.keys(video).length > 0 && (

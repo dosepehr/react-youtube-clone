@@ -7,3 +7,4 @@ export { default as Videos } from './pages/Videos';
 export { default as VideoCard } from './VideoCard';
 export { default as ChannelCard } from './ChannelCard';
 export { default as ChannelDetail } from './pages/ChannelDetail';
+export { default as SearchFeed } from './pages/SearchFeed';

@@ -5,6 +5,7 @@ import {
     Sidebar,
     Videos,
     ChannelDetail,
+    SearchFeed,
 } from './components';
 import { Route, Routes, Navigate } from 'react-router-dom';
 function App() {
@@ -48,6 +49,12 @@ function App() {
                             videos={videos}
                             setVideos={setVideos}
                         />
+                    }
+                />
+                <Route
+                    path='/search/:searchQuery'
+                    element={
+                        <SearchFeed videos={videos} setVideos={setVideos} />
                     }
                 />
             </Routes>

@@ -18,7 +18,7 @@ function Videos({ selectedCategory, videos, setVideos }) {
     return (
         <>
             <div className='bg-black px-5 mt-16 '>
-                <div className='fixed w-full z-40 bg-black py-3'>
+                <div className='fixed w-full z-40 bg-black py-3 space-x-2 '>
                     <span className='text-white font-bold text-3xl'>
                         {selectedCategory}
                     </span>
@@ -30,15 +30,12 @@ function Videos({ selectedCategory, videos, setVideos }) {
                     <>
                         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3'>
                             {videos.map((item, index) => (
-                                <div>
+                                <div key={index}>
                                     {item.id.videoId && (
-                                        <VideoCard video={item} key={index} />
+                                        <VideoCard video={item} />
                                     )}
                                     {item.id.channelId && (
-                                        <ChannelCard
-                                            channelDetail={item}
-                                            key={index}
-                                        />
+                                        <ChannelCard channelDetail={item} />
                                     )}
                                 </div>
                             ))}
