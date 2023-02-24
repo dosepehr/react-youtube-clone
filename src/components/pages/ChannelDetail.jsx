@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchData } from '../Services';
-import { VideoCard,ChannelCard } from './index';
+import { fetchData } from '../../Services';
+import { VideoCard, ChannelCard } from '../index';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
 
 function ChannelDetail({ channel, setChannel, videos, setVideos }) {

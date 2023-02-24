@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { fetchData } from '../Services';
-import { VideoCard, ChannelCard } from './index.js';
+import { fetchData } from '../../Services';
+import { VideoCard, ChannelCard } from '../index.js';
 function Videos({ selectedCategory, videos, setVideos }) {
     useEffect(() => {
         async function getData() {
