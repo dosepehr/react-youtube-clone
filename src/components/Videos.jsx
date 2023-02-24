@@ -17,14 +17,16 @@ function Videos({ selectedCategory, videos, setVideos }) {
     }, [selectedCategory]);
     return (
         <>
-            <div className='w-10/12 bg-black px-5'>
-                <div className='space-x-2'>
+            <div className='bg-black px-5 mt-16 '>
+                <div className='fixed w-full z-40 bg-black py-3'>
                     <span className='text-white font-bold text-3xl'>
                         {selectedCategory}
                     </span>
                     <span className='text-Mainred font-bold text-3xl'>
                         videos
                     </span>
+                </div>
+                <div className='space-x-2'>
                     <>
                         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3'>
                             {videos.map((item, index) => (

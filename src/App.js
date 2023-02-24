@@ -12,9 +12,10 @@ function App() {
     const [showSidebar, setShowSidebar] = useState(false);
     const [videos, setVideos] = useState([]);
     const [channel, setChannel] = useState(null);
+    const [openSideBar, setOpenSideBar] = useState(false);
     return (
         <>
-            <Navbar />
+            <Navbar openSideBar={openSideBar} setOpenSideBar={setOpenSideBar} />
             <Routes>
                 <Route path='/' element={<Navigate to='/videos' />} />
 
@@ -23,6 +24,8 @@ function App() {
                     element={
                         <MainLayout>
                             <Sidebar
+                                openSideBar={openSideBar}
+                                setOpenSideBar={setOpenSideBar}
                                 selectedCategory={selectedCategory}
                                 setSelectedCategory={setSelectedCategory}
                                 showSidebar={showSidebar}

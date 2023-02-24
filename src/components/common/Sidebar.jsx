@@ -1,19 +1,26 @@
 import React from 'react';
 import { categories } from '../../constants/data';
-function Sidebar({ selectedCategory, setSelectedCategory }) {
+function Sidebar({
+    selectedCategory,
+    setSelectedCategory,
+    openSideBar,
+}) {
     const changeCategory = (categoryName) => {
         setSelectedCategory(categoryName);
     };
+    console.log(window.innerWidth);
+    console.log(openSideBar);
     return (
         <>
-            <div className='bg-black w-2/12 overflow-x-hidden border-r border-gray-400'>
+            <div className='bg-black overflow-x-hidden border-r border-gray-400 mt-16 transition-all duration-200 w-[300px]'>
                 <div className='flex flex-col p-4 space-y-2'>
                     {categories.map((category, index) => (
                         <div
                             onClick={() => changeCategory(category.name)}
                             key={index}
-                            className={` group flex items-center rounded-full space-x-2 p-3 text-center hover:bg-Mainred duration-200 cursor-pointer ${
-                                category.name === selectedCategory && 'bg-Mainred'
+                            className={` group flex items-center rounded-full space-x-2 p-3 text-center hover:bg-Mainred  w-min transition-all duration-200 cursor-pointer ${
+                                category.name === selectedCategory &&
+                                'bg-Mainred'
                             }`}
                         >
                             <span
@@ -24,9 +31,11 @@ function Sidebar({ selectedCategory, setSelectedCategory }) {
                             >
                                 {category.icon}
                             </span>
-                            <span className='text-base font-semibold text-white '>
-                                {category.name}
-                            </span>
+                            {window.innerWidth > 500 || openSideBar ? (
+                                <span className='text-base font-semibold text-white '>
+                                    {category.name}
+                                </span>
+                            ) : null}
                         </div>
                     ))}
                 </div>
