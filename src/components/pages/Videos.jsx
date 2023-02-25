@@ -1,7 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
+import { mainContext } from '../../context';
 import { fetchData } from '../../Services';
 import { VideoCard, ChannelCard } from '../index.js';
-function Videos({ selectedCategory, videos, setVideos }) {
+function Videos() {
+    const { selectedCategory, videos, setVideos } = useContext(mainContext);
     useEffect(() => {
         async function getData() {
             try {

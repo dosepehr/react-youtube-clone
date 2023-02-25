@@ -1,8 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
+import { mainContext } from '../../context';
 import { VideoCard, ChannelCard } from '../index';
 import { useParams } from 'react-router-dom';
 import { fetchData } from '../../Services';
-function SearchFeed({ videos, setVideos }) {
+function SearchFeed() {
+    const { videos, setVideos } = useContext(mainContext);
     const { searchQuery } = useParams();
     console.log(searchQuery);
     useEffect(() => {

@@ -1,10 +1,13 @@
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
+import { mainContext } from '../../context';
 import { useParams } from 'react-router-dom';
 import { fetchData } from '../../Services';
-import { VideoCard, ChannelCard } from '../index';
+import { VideoCard } from '../index';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
+import { Helmet } from 'react-helmet-async';
 
-function ChannelDetail({ channel, setChannel, videos, setVideos }) {
+function ChannelDetail() {
+    const { channel, setChannel, videos, setVideos } = useContext(mainContext);
     const { id } = useParams();
     useEffect(() => {
         async function getData() {
@@ -25,6 +28,9 @@ function ChannelDetail({ channel, setChannel, videos, setVideos }) {
     }, [id]);
     return (
         <>
+            <Helmet>
+                <title>YouTube - {channel.snippet.title}</title>
+            </Helmet>
             <div className='bg-black'>
                 <div className='w-full h-[200px] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 z-10'></div>
                 {channel && (
@@ -35,7 +41,7 @@ function ChannelDetail({ channel, setChannel, videos, setVideos }) {
                             className='rounded-full w-40 -mt-[80px] mx-auto'
                         />
                         <div className='text-Textgray text-xl mt-10 flex items-center justify-center space-x-2 '>
-                            <span>{channel.snippet.title} </span>
+                            <span>{channel.snippet.title}</span>
                             <span>
                                 <BsFillCheckCircleFill />
                             </span>

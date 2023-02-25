@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
-function ChannelCard({ channelDetail, mt, w }) {
+function ChannelCard({ channelDetail }) {
     return (
         <div className='flex items-center justify-center text-center w-full h-full '>
             {Object.keys(channelDetail).length > 0 && (

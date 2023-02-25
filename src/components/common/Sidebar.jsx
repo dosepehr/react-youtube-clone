@@ -1,6 +1,8 @@
-import React from 'react';
+import { useContext } from 'react';
+import { mainContext } from '../../context';
 import { categories } from '../../constants/data';
-function Sidebar({ selectedCategory, setSelectedCategory }) {
+function Sidebar() {
+    const { selectedCategory, setSelectedCategory } = useContext(mainContext);
     const changeCategory = (categoryName) => {
         setSelectedCategory(categoryName);
     };

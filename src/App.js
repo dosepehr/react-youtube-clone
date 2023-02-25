@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {
     MainLayout,
     Navbar,
@@ -8,67 +8,56 @@ import {
     SearchFeed,
     VideoDetail,
 } from './components';
+import { mainContext } from './context';
 import { Route, Routes, Navigate } from 'react-router-dom';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 function App() {
     const [selectedCategory, setSelectedCategory] = useState('New');
     const [videos, setVideos] = useState([]);
     const [channel, setChannel] = useState(null);
-    const [openSideBar, setOpenSideBar] = useState(false);
     const [video, setVideo] = useState({});
+    const [query, setQuery] = useState('');
     return (
-        <>
-            <Navbar openSideBar={openSideBar} setOpenSideBar={setOpenSideBar} />
-            <Routes>
-                <Route path='/' element={<Navigate to='/videos' />} />
+        <HelmetProvider>
+            <mainContext.Provider
+                value={{
+                    selectedCategory,
+                    setSelectedCategory,
+                    videos,
+                    setVideos,
+                    setChannel,
+                    channel,
+                    video,
+                    setVideo,
+                    query,
+                    setQuery,
+                }}
+            >
+                <Helmet>
+                    <title>YouTube</title>
+                </Helmet>
 
-                <Route
-                    path='/videos'
-                    element={
-                        <MainLayout>
-                            <Sidebar
-                                openSideBar={openSideBar}
-                                setOpenSideBar={setOpenSideBar}
-                                selectedCategory={selectedCategory}
-                                setSelectedCategory={setSelectedCategory}
-                            />
-                            <Videos
-                                selectedCategory={selectedCategory}
-                                videos={videos}
-                                setVideos={setVideos}
-                            />
-                        </MainLayout>
-                    }
-                />
-                <Route
-                    path='/channel/:id'
-                    element={
-                        <ChannelDetail
-                            channel={channel}
-                            setChannel={setChannel}
-                            videos={videos}
-                            setVideos={setVideos}
-                        />
-                    }
-                />
-                <Route
-                    path='/search/:searchQuery'
-                    element={
-                        <SearchFeed videos={videos} setVideos={setVideos} />
-                    }
-                />
-                <Route
-                    path='video/:videoId'
-                    element={
-                        <VideoDetail
-                            video={video}
-                            setVideo={setVideo}
-                            videos={videos}
-                            setVideos={setVideos}
-                        />
-                    }
-                />
-            </Routes>
-        </>
+                <Navbar />
+                <Routes>
+                    <Route path='/' element={<Navigate to='/videos' />} />
+                    <Route
+                        path='/videos'
+                        element={
+                            <MainLayout>
+                                <Sidebar />
+                                <Videos />
+                            </MainLayout>
+                        }
+                    />
+                    <Route path='video/:videoId' element={<VideoDetail />} />
+                    <Route path='/channel/:id' element={<ChannelDetail />} />
+                    <Route
+                        path='/search/:searchQuery'
+                        element={<SearchFeed />}
+                    />
+                </Routes>
+            </mainContext.Provider>
+        </HelmetProvider>
     );
 }
 

@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useContext } from 'react';
+import { mainContext } from '../../context';
 import { BiSearchAlt2 } from 'react-icons/bi';
 import { useNavigate } from 'react-router-dom';
 function SearchBar() {
-    const [query, setQuery] = useState('');
+    const { query, setQuery } = useContext(mainContext);
     const navigate = useNavigate();
     const handleSearch = (query) => {
         if (query) {
