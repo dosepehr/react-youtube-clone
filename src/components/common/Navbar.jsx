@@ -1,20 +1,18 @@
 import React from 'react';
 import { SearchBar } from '../index';
 import { MainLogo } from '../../constants/data';
-function Navbar({ setOpenSideBar }) {
+import { Link } from 'react-router-dom';
+function Navbar() {
     return (
         <>
-            <div className='bg-black flex justify-between w-full p-4 px-10 fixed '>
-                {window.innerWidth <= 500 && (
-                    <p
-                        className='bg-red-600'
-                        onClick={() => setOpenSideBar((prev) => !prev)}
-                    >
-                        open
-                    </p>
-                )}
-
-                <img src={MainLogo} alt='logo' className='h-11 rounded-md ' />
+            <div className='bg-black flex justify-between w-full p-4 px-5 fixed '>
+                <Link to='/videos' >
+                    <img
+                        src={MainLogo}
+                        alt='logo'
+                        className='h-11 rounded-md '
+                    />
+                </Link>
                 <SearchBar />
             </div>
         </>

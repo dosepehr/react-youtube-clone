@@ -15,7 +15,7 @@ function SearchBar() {
             <div className='relative'>
                 <input
                     type='text'
-                    className='w-80 ml-5 h-10 rounded-full px-4'
+                    className='max-w-[320px] sm:w-[450px] ml-5 h-10 rounded-full px-4 '
                     placeholder='Search...'
                     onChange={(e) => {
                         setQuery(e.target.value);

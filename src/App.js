@@ -11,7 +11,6 @@ import {
 import { Route, Routes, Navigate } from 'react-router-dom';
 function App() {
     const [selectedCategory, setSelectedCategory] = useState('New');
-    const [showSidebar, setShowSidebar] = useState(false);
     const [videos, setVideos] = useState([]);
     const [channel, setChannel] = useState(null);
     const [openSideBar, setOpenSideBar] = useState(false);
@@ -31,8 +30,6 @@ function App() {
                                 setOpenSideBar={setOpenSideBar}
                                 selectedCategory={selectedCategory}
                                 setSelectedCategory={setSelectedCategory}
-                                showSidebar={showSidebar}
-                                setShowSidebar={setShowSidebar}
                             />
                             <Videos
                                 selectedCategory={selectedCategory}
