@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
     MainLayout,
     Navbar,
@@ -6,6 +6,7 @@ import {
     Videos,
     ChannelDetail,
     SearchFeed,
+    VideoDetail,
 } from './components';
 import { Route, Routes, Navigate } from 'react-router-dom';
 function App() {
@@ -14,6 +15,7 @@ function App() {
     const [videos, setVideos] = useState([]);
     const [channel, setChannel] = useState(null);
     const [openSideBar, setOpenSideBar] = useState(false);
+    const [video, setVideo] = useState({});
     return (
         <>
             <Navbar openSideBar={openSideBar} setOpenSideBar={setOpenSideBar} />
@@ -55,6 +57,17 @@ function App() {
                     path='/search/:searchQuery'
                     element={
                         <SearchFeed videos={videos} setVideos={setVideos} />
+                    }
+                />
+                <Route
+                    path='video/:videoId'
+                    element={
+                        <VideoDetail
+                            video={video}
+                            setVideo={setVideo}
+                            videos={videos}
+                            setVideos={setVideos}
+                        />
                     }
                 />
             </Routes>

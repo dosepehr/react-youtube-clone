@@ -3,7 +3,7 @@ const BASE_URL = 'https://youtube-v31.p.rapidapi.com';
 const options = {
     params: { maxResults: 50 },
     headers: {
-        'X-RapidAPI-Key': '7f969a59bcmsh367313f461fbf4ap1fc7b0jsnca138dc750d0',
+        'X-RapidAPI-Key': '7aeb8b93d1mshbe550573c2f0ea4p1769c1jsn50021e6f3802',
         'X-RapidAPI-Host': 'youtube-v31.p.rapidapi.com',
     },
 };
