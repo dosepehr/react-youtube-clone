@@ -29,7 +29,7 @@ function ChannelDetail() {
     return (
         <>
             <Helmet>
-                <title>YouTube - {channel.snippet.title}</title>
+                {channel && <title>YouTube - {channel.snippet.title}</title>}
             </Helmet>
             <div className='bg-black'>
                 <div className='w-full h-[200px] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 z-10'></div>
