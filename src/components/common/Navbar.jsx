@@ -1,4 +1,3 @@
-import React from 'react';
 import { SearchBar } from '../index';
 import { MainLogo } from '../../constants/data';
 import { Link } from 'react-router-dom';

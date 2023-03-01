@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Navbar } from './components';
 import { mainContext } from './context';
-import { Route, Routes, Navigate, useRoutes } from 'react-router-dom';
-import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { useRoutes } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { routes } from './routes/routes';
 function App() {
     const [selectedCategory, setSelectedCategory] = useState('New');
@@ -12,7 +12,6 @@ function App() {
     const [query, setQuery] = useState('');
     const router = useRoutes(routes());
     return (
-        <HelmetProvider>
             <mainContext.Provider
                 value={{
                     selectedCategory,
@@ -33,7 +32,6 @@ function App() {
                 <Navbar />
                 {router}
             </mainContext.Provider>
-        </HelmetProvider>
     );
 }
 
